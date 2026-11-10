@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Morgan | Student Portfolio & Academic Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navigation Header -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Alex.Dev</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#planner">Planner</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- 1. Homepage Section -->
+    <section id="home" class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Welcome to My Digital Space</h1>
+                <h2>Hi, I'm <span class="highlight">Alex Morgan</span></h2>
+                <p class="bio-brief">A passionate Computer Science student dedicated to building accessible web experiences and managing academic milestones efficiently.</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+            <div class="hero-image">
+                <!-- Using a placeholder image for student photograph -->
+                <img src="https://unsplash.com" alt="Alex Morgan Portrait">
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. About Me Page Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>Educational Background</h3>
+                    <p>Currently pursuing a B.Sc. in Computer Science at State University (2024 - Present).</p>
+                    <table class="edu-table">
+                        <thead>
+                            <tr>
+                                <th>Year</th>
+                                <th>Course/Degree</th>
+                                <th>Institution</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2024 - Present</td>
+                                <td>B.Sc. Computer Science</td>
+                                <td>State University</td>
+                            </tr>
+                            <tr>
+                                <td>2022 - 2024</td>
+                                <td>Advanced High School Diploma</td>
+                                <td>Beacon Academy</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="about-card">
+                    <h3>Career Aspirations</h3>
+                    <p>I aim to become a Full-Stack Software Engineer, focusing on building high-performance web applications that solve real-world accessibility and productivity issues.</p>
+                </div>
+
+                <div class="about-card">
+                    <h3>Technical Skills</h3>
+                    <ul class="skills-list">
+                        <li>HTML5 & Semantic Markup</li>
+                        <li>CSS3, Flexbox & Grid Layouts</li>
+                        <li>JavaScript (ES6+) & DOM Control</li>
+                        <li>Git & Version Control Systems</li>
+                    </ul>
+                </div>
+
+                <div class="about-card">
+                    <h3>Hobbies & Interests</h3>
+                    <p>When I'm not writing code or studying, I enjoy regular activities that keep my creativity flowing:</p>
+                    <ul class="hobbies-list">
+                        <li>Photography & Digital Editing</li>
+                        <li>Playing Chess & Strategy Games</li>
+                        <li>Hiking & Nature Trail Mapping</li>
+                    </ul>
+                    <!-- Multimedia Integration Requirement -->
+                    <div class="media-container">
+                        <h4>A Track I Code To:</h4>
+                        <audio controls src="https://soundhelix.com">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Projects Page Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <div class="projects-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <img src="https://unsplash.com" alt="E-Commerce Interface Concept">
+                    <div class="project-info">
+                        <h3>EcoShop Platform</h3>
+                        <p>A simulated e-commerce application focusing on sustainable tech products built using advanced modular design rules.</p>
+                        <a href="https://github.com" target="_blank" class="project-link">View Repository &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <img src="https://unsplash.com" alt="Task Dashboard Layout">
+                    <div class="project-info">
+                        <h3>Focus Tracker app</h3>
+                        <p>A productivity management application utilizing localized temporary web buffers to store critical daily priorities.</p>
+                        <a href="https://github.com" target="_blank" class="project-link">Live Demonstration &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <img src="https://unsplash.com" alt="Data Analytics Chart Screen">
+                    <div class="project-info">
+                        <h3>Metric Dashboard</h3>
+                        <p>An interactive system generating customized performance visualizations using structured CSS coordinate matrices.</p>
+                        <a href="https://github.com" target="_blank" class="project-link">View Documentation &rarr;</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Academic Planner Page Section -->
+    <section id="planner" class="planner-section">
+        <div class="container">
+            <h2 class="section-title">Academic Planner</h2>
+            <p class="section-subtitle">Stay on track with assignments, exams, and milestones.</p>
+            
+            <div class="planner-wrapper">
+                <form id="planner-form" class="planner-input-group">
+                    <input type="text" id="task-input" placeholder="Enter assignment or task title..." required>
+                    <button type="submit" class="btn btn-add">Add Task</button>
+                </form>
+
+                <div class="planner-list-container">
+                    <ul id="task-list" class="task-list">
+                        <!-- Tasks added by user JavaScript appear here -->
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contact Page Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-wrapper">
+                <form id="contact-form" class="contact-form" novalidate>
+                    <div class="form-group">
+                        <label for="contact-name">Name</label>
+                        <input type="text" id="contact-name" name="name" placeholder="Your Full Name">
+                        <span class="error-msg" id="name-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-email">Email Address</label>
+                        <input type="email" id="contact-email" name="email" placeholder="username@example.com">
+                        <span class="error-msg" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-phone">Phone Number</label>
+                        <input type="tel" id="contact-phone" name="phone" placeholder="Digits only (e.g., 1234567890)">
+                        <span class="error-msg" id="phone-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contact-message">Message</label>
+                        <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here..."></textarea>
+                        <span class="error-msg" id="message-error"></span>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit">Send Message</button>
+                    <div id="form-success" class="success-banner"></div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <p>&copy; 2026 Alex Morgan. Built for Academic Portfolio presentation.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

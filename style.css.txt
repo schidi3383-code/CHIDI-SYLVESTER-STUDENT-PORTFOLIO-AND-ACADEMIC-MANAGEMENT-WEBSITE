@@ -1,0 +1,162 @@
+
+script.js
+
+javascript
+document.addEventListener('DOMContentLoaded', () => {
+
+    // ==========================================
+    // 4. INTERACTIVE ACADEMIC PLANNER LOGIC
+    // ==========================================
+    const plannerForm = document.getElementById('planner-form');
+    const taskInput = document.getElementById('task-input');
+    const taskList = document.getElementById('task-list');
+
+    // Structured state using arrays
+    let academicTasks = [
+        { id: 1, title: 'Complete Math Assignment 3', completed: false },
+        { id: 2, title: 'Read Research Paper on Matrix Grids', completed: true }
+    ];
+
+    // Function to render layout items using DOM manipulation
+    function renderTasks() {
+        taskList.innerHTML = '';
+
+        academicTasks.forEach(task => {
+            const li = document.createElement('li');
+            li.className = `task-item ${task.completed ? 'completed' : ''}`;
+            li.setAttribute('data-id', task.id);
+
+            const textSpan = document.createElement('span');
+            textSpan.className = 'task-text';
+            textSpan.textContent = task.title;
+
+            const actionsDiv = document.createElement('div');
+            actionsDiv.className = 'task-actions';
+
+            const completeBtn = document.createElement('button');
+            completeBtn.className = 'btn-complete';
+            completeBtn.textContent = task.completed ? 'Undo' : 'Done';
+            // Event Handling for completion toggle
+            completeBtn.addEventListener('click', () => toggleTaskCompletion(task.id));
+
+            const deleteBtn = document.createElement('button');
+            deleteBtn.className = 'btn-delete';
+            deleteBtn.textContent = 'Delete';
+            // Event Handling for removal execution
+            deleteBtn.addEventListener('click', () => deleteTask(task.id));
+
+            actionsDiv.appendChild(completeBtn);
+            actionsDiv.appendChild(deleteBtn);
+            li.appendChild(textSpan);
+            li.appendChild(actionsDiv);
+            taskList.appendChild(li);
+        });
+    }
+
+    // Function execution to add task configuration properties
+    plannerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const taskTitle = taskInput.value.trim();
+        if (taskTitle === '') return;
+
+        const newTask = {
+            id: Date.now(), // Generate a unique identifier
+            title: taskTitle,
+            completed: false
+        };
+
+        academicTasks.push(newTask);
+        taskInput.value = '';
+        renderTasks();
+    });
+
+    // Toggle operation logic state transformation
+    function toggleTaskCompletion(id) {
+        academicTasks = academicTasks.map(task => {
+            if (task.id === id) {
+                return { ...task, completed: !task.completed };
+            }
+            return task;
+        });
+        renderTasks();
+    }
+
+    // Task deletion array filtration logic execution
+    function deleteTask(id) {
+        academicTasks = academicTasks.filter(task => task.id !== id);
+        renderTasks();
+    }
+
+
+    // ==========================================
+    // 5. CONTACT FORM VALIDATION LOGIC
+    // ==========================================
+    const contactForm = document.getElementById('contact-form');
+    const nameInput = document.getElementById('contact-name');
+    const emailInput = document.getElementById('contact-email');
+    const phoneInput = document.getElementById('contact-phone');
+    const messageInput = document.getElementById('contact-message');
+
+    const nameError = document.getElementById('name-error');
+    const emailError = document.getElementById('email-error');
+    const phoneError = document.getElementById('phone-error');
+    const messageError = document.getElementById('message-error');
+    const successBanner = document.getElementById('form-success');
+
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Dynamic context evaluation reset rules
+        let isValid = true;
+        nameError.textContent = '';
+        emailError.textContent = '';
+        phoneError.textContent = '';
+        messageError.textContent = '';
+        successBanner.style.display = 'none';
+
+        // Requirement check: Ensure No Field is Empty
+        if (nameInput.value.trim() === '') {
+            nameError.textContent = 'Name verification field cannot remain blank.';
+            isValid = false;
+        }
+
+        if (messageInput.value.trim() === '') {
+            messageError.textContent = 'Message input details are required.';
+            isValid = false;
+        }
+
+        // Requirement check: Email Format Validation Rule
+        const emailValue = emailInput.value.trim();
+        const emailRegex = /^[^\s@]+ Alb\. [^\s@]+ \. [^\s@]+$/; // Basic compliant structure matches regex evaluation rules
+        const simpleEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+
+        if (emailValue === '') {
+            emailError.textContent = 'Email communication space must contain an address.';
+            isValid = false;
+        } else if (!simpleEmailRegex.test(emailValue)) {
+            emailError.textContent = 'Please register a properly configured format (e.g. name@domain.com).';
+            isValid = false;
+        }
+
+        // Requirement check: Phone Number Digit Constraints
+        const phoneValue = phoneInput.value.trim();
+        const digitRegex = /^\d+$/;
+
+        if (phoneValue === '') {
+            phoneError.textContent = 'Phone number element requires input data.';
+            isValid = false;
+        } else if (!digitRegex.test(phoneValue)) {
+            phoneError.textContent = 'Formatting parameters invalid. Supply digits only.';
+            isValid = false;
+        }
+
+        // Action on validated form verification status
+        if (isValid) {
+            successBanner.textContent = 'Form validation successful! Message recorded.';
+            successBanner.style.display = 'block';
+            contactForm.reset();
+        }
+    });
+
+    // Run Initial Array Layout Render
+    renderTasks();
