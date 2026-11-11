@@ -1,0 +1,39 @@
+document.getElementById("contactForm")
+.addEventListener("submit", function(event){
+
+event.preventDefault();
+
+let name =
+document.getElementById("name").value.trim();
+
+let email =
+document.getElementById("email").value.trim();
+
+let phone =
+document.getElementById("phone").value.trim();
+
+let message =
+document.getElementById("message").value.trim();
+
+if(name === "" || email === "" || phone === "" || message === ""){
+alert("All fields are required");
+return;
+}
+
+let emailPattern =
+/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+if(!email.match(emailPattern)){
+alert("Enter a valid email address");
+return;
+}
+
+let phonePattern = /^[0-9]+$/;
+
+if(!phone.match(phonePattern)){
+alert("Phone number must contain only digits");
+return;
+}
+
+alert("Form submitted successfully!");
+});
