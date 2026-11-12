@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Planner - Chidi Sylvester Chinedu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">CSC Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html" class="active">Academic Planner</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Interactive Academic Planner</h1>
+        <p class="section-subtitle">Organize your coursework, assignments, and study schedule efficiently.</p>
+
+        <div class="planner-box">
+            <div class="task-input-group">
+                <input type="text" id="taskInput" placeholder="Enter a new academic task or assignment...">
+                <button id="addTaskBtn" class="btn">Add Task</button>
+            </div>
+
+            <ul id="taskList" class="task-list">
+                <!-- Dynamically populated tasks via JavaScript -->
+            </ul>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Chidi Sylvester Chinedu | Miva Open University</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

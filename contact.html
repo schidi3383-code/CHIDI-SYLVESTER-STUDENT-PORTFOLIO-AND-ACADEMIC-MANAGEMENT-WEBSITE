@@ -1,39 +1,74 @@
-document.getElementById("contactForm")
-.addEventListener("submit", function(event){
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Me - Chidi Sylvester Chinedu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">CSC Portfolio</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="planner.html">Academic Planner</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-event.preventDefault();
+    <main class="container">
+        <h1>Get in Touch</h1>
+        <p class="section-subtitle">Feel free to reach out via the form below or using my direct contact details.</p>
 
-let name =
-document.getElementById("name").value.trim();
+        <div class="contact-wrapper">
+            <div class="contact-info card">
+                <h3>Contact Information</h3>
+                <p><strong>Name:</strong> Chidi Sylvester Chinedu</p>
+                <p><strong>Location:</strong> Abuja, Nigeria (From Delta State)</p>
+                <p><strong>Institution:</strong> Miva Open University</p>
+                <p><strong>Phone:</strong> 09035221710</p>
+                <p><strong>Email:</strong> chidisylvester48@gmail.com</p>
+            </div>
 
-let email =
-document.getElementById("email").value.trim();
+            <form id="contactForm" class="contact-form card" novalidate>
+                <h3>Send Me a Message</h3>
+                
+                <div id="formError" class="error-msg"></div>
+                <div id="formSuccess" class="success-msg"></div>
 
-let phone =
-document.getElementById("phone").value.trim();
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your full name">
+                </div>
 
-let message =
-document.getElementById("message").value.trim();
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" placeholder="chidisylvester48@gmail.com">
+                </div>
 
-if(name === "" || email === "" || phone === "" || message === ""){
-alert("All fields are required");
-return;
-}
+                <div class="form-group">
+                    <label for="phone">Phone Number (Digits only)</label>
+                    <input type="text" id="phone" placeholder="09035221710">
+                </div>
 
-let emailPattern =
-/^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="4" placeholder="Write your message here..."></textarea>
+                </div>
 
-if(!email.match(emailPattern)){
-alert("Enter a valid email address");
-return;
-}
+                <button type="submit" class="btn">Submit Form</button>
+            </form>
+        </div>
+    </main>
 
-let phonePattern = /^[0-9]+$/;
+    <footer>
+        <p>&copy; 2026 Chidi Sylvester Chinedu | Miva Open University</p>
+    </footer>
 
-if(!phone.match(phonePattern)){
-alert("Phone number must contain only digits");
-return;
-}
-
-alert("Form submitted successfully!");
-});
+    <script src="script.js"></script>
+</body>
+</html>
