@@ -102,4 +102,8 @@ document.addEventListener("DOMContentLoaded", () => {
             contactForm.reset();
         });
     }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 59a2420cf58f0e89d408a6e96e49cb5f6ca69695
